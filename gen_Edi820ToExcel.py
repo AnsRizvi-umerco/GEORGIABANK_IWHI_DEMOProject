@@ -72,7 +72,9 @@ CSV_HEADER_TEMPLATE = (
 )
 CSV_ROW_TEMPLATE = '%csv%\n%invoiceNum%,%invDateFmt%,%invPaid%,%invGross%'
 CSV_TRAILER_TEMPLATE = '%csv%\nTOTAL,,%bprAmount%,'
-DEBUG_MSG = 'EDI 820 %traceNum% converted: %invoiceCount% invoices, payment total %bprAmount% USD'
+DEBUG_MSG = 'EDI 820 %traceNum% converted: %invoiceCount% invoices, total %bprAmount% USD - CSV posted to ToSharePoint webhook'
+WEBHOOK_URL = 'https://prod537147.a-vir-r1.int.ipaas.automation.ibm.com/runflow/run/ZECeeMqS4'
+JSON_PAYLOAD_TEMPLATE = '{"filename":"EDI820_Remittance_%traceNum%.csv","content":"%csvEsc%"}'
 VALIDATIONS = [  # (regex label, failure message)
     (r'edi820 = /ST\*820/', 'Not an X12 820 (ST*820 segment not found) - conversion aborted'),
     (r'edi820 = /BPR\*/',   'X12 820 missing BPR payment segment - conversion aborted'),
@@ -249,6 +251,28 @@ ms = wrap_fields([pipe_field("csv"), pipe_field("bprAmount")])
 steps.append((transform([mapset("csv", CSV_TRAILER_TEMPLATE, variables=True),
                          mapset("status", "CONVERTED_820_EXCEL", variables=False)], mt, ms),
               "transform", None, None))
+
+# escape CSV newlines for JSON embedding (Java replacement "\\n" -> literal \n)
+steps.append((replace_invoke("EscapeForJson", "csv", r'\r?\n', "csvEsc", repl=r'\\n'),
+              "invoke", ("replace", "pub.string:replace", "String", "string"), None))
+
+# build the webhook JSON payload
+mt = wrap_fields([pipe_field("jsonPayload")])
+ms = wrap_fields([pipe_field("traceNum"), pipe_field("csvEsc")])
+steps.append((transform([mapset("jsonPayload", JSON_PAYLOAD_TEMPLATE, variables=True)], mt, ms),
+              "transform", None, None))
+
+# POST to the ToSharePoint workflow webhook (Webhook -> Write File -> SharePoint Upload)
+mt = wrap_fields([svc_field("url"), svc_field("method"),
+                  field_decl("data", "record", node_type="record",
+                             rec_children=[svc_field("string"), svc_field("mimeType")])], "httpInput")
+ms = wrap_fields([pipe_field("jsonPayload")])
+inp = "\n".join([mapset("url", WEBHOOK_URL, variables=False),
+                 mapset("method", "post", variables=False),
+                 mapcopy("jsonPayload", "data/string"),
+                 mapset("data/mimeType", "application/json", variables=False)])
+steps.append((invoke("PostToSharePointFlow", "pub.client:http", inp, mt, ms),
+              "invoke", ("http", "pub.client:http", "Client", "client"), None))
 
 # debugLog
 mt = wrap_fields([svc_field("message"), svc_field("function"), svc_field("level")], "debugLogInput")
@@ -471,3 +495,11 @@ if __name__ == "__main__" or True:
     assert "TOTAL,,61750.50," in csv_out
     assert "%" not in csv_out
     print("OK  simulation: 4 invoice rows, sum == BPR amount 61750.50, dates formatted, summary block correct")
+    # webhook payload: escape newlines, embed in JSON, must parse cleanly
+    import json
+    csv_esc = re.sub(r'\r?\n', r'\\n', csv_out)
+    payload = JSON_PAYLOAD_TEMPLATE.replace("%traceNum%", "CHK-20260701-4415").replace("%csvEsc%", csv_esc)
+    parsed = json.loads(payload)
+    assert parsed["filename"] == "EDI820_Remittance_CHK-20260701-4415.csv"
+    assert parsed["content"].count("\n") == csv_out.count("\n") and "INV-4002" in parsed["content"]
+    print("OK  webhook payload: valid JSON, filename + full CSV content intact")
