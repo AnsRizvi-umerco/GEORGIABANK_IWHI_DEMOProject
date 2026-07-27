@@ -75,6 +75,9 @@ CSV_TRAILER_TEMPLATE = '%csv%\nTOTAL,,%bprAmount%,'
 DEBUG_MSG = 'EDI 820 %traceNum% converted: %invoiceCount% invoices, total %bprAmount% USD - CSV posted to ToSharePoint webhook'
 WEBHOOK_URL = 'https://prod537147.a-vir-r1.int.ipaas.automation.ibm.com/runflow/run/ZECeeMqS4'
 JSON_PAYLOAD_TEMPLATE = '{"filename":"EDI820_Remittance_%traceNum%.csv","content":"%csvEsc%"}'
+# NOTE: BRANCH/regex-label validation steps REMOVED -- the browser editor rejects them
+# at save time ("Not a valid step") even though they execute. Input validation for the
+# demo is B2B's job (doc recognition + EDI analyzer). Lesson for the handbook.
 VALIDATIONS = [  # (regex label, failure message)
     (r'edi820 = /ST\*820/', 'Not an X12 820 (ST*820 segment not found) - conversion aborted'),
     (r'edi820 = /BPR\*/',   'X12 820 missing BPR payment segment - conversion aborted'),
@@ -198,9 +201,6 @@ def branch_step(label_expr, fail_msg):
 # ---------------------------------------------------------------- step list
 steps = []
 
-for label_expr, fail in VALIDATIONS:
-    steps.append((branch_step(label_expr, fail), "branch", None, None))
-
 for label, src, rx, out in HDR_EXTRACTS:
     steps.append((replace_invoke(label, src, rx, out, repl_for(label)),
                   "invoke", ("replace", "pub.string:replace", "String", "string"), None))
@@ -263,14 +263,18 @@ steps.append((transform([mapset("jsonPayload", JSON_PAYLOAD_TEMPLATE, variables=
               "transform", None, None))
 
 # POST to the ToSharePoint workflow webhook (Webhook -> Write File -> SharePoint Upload)
+# Real tenant schema (from the mapper): data{args,table,string,bytes,mimeStream,stream,
+# encoding}, headers doc for HTTP headers. No mimeType field -- Content-Type goes in headers.
 mt = wrap_fields([svc_field("url"), svc_field("method"),
                   field_decl("data", "record", node_type="record",
-                             rec_children=[svc_field("string"), svc_field("mimeType")])], "httpInput")
+                             rec_children=[svc_field("string"), svc_field("encoding")]),
+                  field_decl("headers", "record", node_type="record",
+                             rec_children=[svc_field("Content-Type")])], "httpInput")
 ms = wrap_fields([pipe_field("jsonPayload")])
 inp = "\n".join([mapset("url", WEBHOOK_URL, variables=False),
                  mapset("method", "post", variables=False),
                  mapcopy("jsonPayload", "data/string"),
-                 mapset("data/mimeType", "application/json", variables=False)])
+                 mapset("headers/Content-Type", "application/json", variables=False)])
 steps.append((invoke("PostToSharePointFlow", "pub.client:http", inp, mt, ms),
               "invoke", ("http", "pub.client:http", "Client", "client"), None))
 
@@ -454,10 +458,6 @@ def sim_replace(s, rx, repl):
     return re.sub(rx, repl.replace("$1-$2-$3", r"\1-\2-\3").replace("$1", r"\1"), s)
 
 def simulate(edi):
-    for label_expr, fail in VALIDATIONS:
-        rx = label_expr.split("/")[1]
-        if not re.search(rx, edi):
-            raise ValueError(fail)
     pipe = {}
     for label, src, rx, out in HDR_EXTRACTS:
         pipe[out] = sim_replace(edi if src == "edi820" else pipe[src], rx, repl_for(label))
