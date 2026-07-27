@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.09">
+  <CstmrCdtTrfInitn>
+    <GrpHdr>
+      <MsgId>GBC-20260615-VENDOR-007</MsgId>
+      <CreDtTm>2026-06-15T11:45:30Z</CreDtTm>
+      <NbOfTxs>3</NbOfTxs>
+      <CtrlSum>55000.00</CtrlSum>
+      <InitgPty>
+        <Nm>Savannah Coastal Exports LLC</Nm>
+      </InitgPty>
+    </GrpHdr>
+    <PmtInf>
+      <PmtInfId>BATCH-GBC-20260615-007</PmtInfId>
+      <PmtMtd>TRF</PmtMtd>
+      <NbOfTxs>3</NbOfTxs>
+      <CtrlSum>55000.00</CtrlSum>
+      <PmtTpInf>
+        <LclInstrm>
+          <Cd>CCD</Cd>
+        </LclInstrm>
+        <CtgyPurp>
+          <Cd>SUPP</Cd>
+        </CtgyPurp>
+      </PmtTpInf>
+      <ReqdExctnDt>
+        <Dt>2026-06-16</Dt>
+      </ReqdExctnDt>
+      <Dbtr>
+        <Nm>Savannah Coastal Exports LLC</Nm>
+        <PstlAdr>
+          <TwnNm>Savannah</TwnNm>
+          <CtrySubDvsn>GA</CtrySubDvsn>
+          <Ctry>US</Ctry>
+        </PstlAdr>
+      </Dbtr>
+      <DbtrAcct>
+        <Id>
+          <Othr>
+            <Id>3300112277</Id>
+          </Othr>
+        </Id>
+        <Ccy>USD</Ccy>
+      </DbtrAcct>
+      <DbtrAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <MmbId>061120084</MmbId>
+          </ClrSysMmbId>
+          <Nm>Georgia Banking Company</Nm>
+        </FinInstnId>
+      </DbtrAgt>
+      <CdtTrfTxInf>
+        <PmtId>
+          <InstrId>GBC-INSTR-7001</InstrId>
+          <EndToEndId>E2E-SCE-2026-7001</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="USD">15750.25</InstdAmt>
+        </Amt>
+        <CdtrAgt>
+          <FinInstnId>
+            <Nm>FIFTH THIRD BANK NA</Nm>
+            <ClrSysMmbId>
+              <MmbId>042000314</MmbId>
+            </ClrSysMmbId>
+          </FinInstnId>
+        </CdtrAgt>
+        <Cdtr>
+          <Nm>Port City Stevedoring Inc</Nm>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <Othr>
+              <Id>5511223344</Id>
+            </Othr>
+          </Id>
+          <Tp>
+            <Cd>CACC</Cd>
+          </Tp>
+        </CdtrAcct>
+        <RmtInf>
+          <Ustrd>June 2026 dock handling fees</Ustrd>
+        </RmtInf>
+      </CdtTrfTxInf>
+      <CdtTrfTxInf>
+        <PmtId>
+          <InstrId>GBC-INSTR-7002</InstrId>
+          <EndToEndId>E2E-SCE-2026-7002</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="USD">8200.00</InstdAmt>
+        </Amt>
+        <CdtrAgt>
+          <FinInstnId>
+            <Nm>SYNOVUS BANK</Nm>
+            <ClrSysMmbId>
+              <MmbId>061100606</MmbId>
+            </ClrSysMmbId>
+          </FinInstnId>
+        </CdtrAgt>
+        <Cdtr>
+          <Nm>Coastal Container Repair LLC</Nm>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <Othr>
+              <Id>5511223355</Id>
+            </Othr>
+          </Id>
+          <Tp>
+            <Cd>CACC</Cd>
+          </Tp>
+        </CdtrAcct>
+        <RmtInf>
+          <Ustrd>Container refurb work order 4417</Ustrd>
+        </RmtInf>
+      </CdtTrfTxInf>
+      <CdtTrfTxInf>
+        <PmtId>
+          <InstrId>GBC-INSTR-7003</InstrId>
+          <EndToEndId>E2E-SCE-2026-7003</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="USD">31049.75</InstdAmt>
+        </Amt>
+        <CdtrAgt>
+          <FinInstnId>
+            <Nm>PNC BANK NA</Nm>
+            <ClrSysMmbId>
+              <MmbId>043000096</MmbId>
+            </ClrSysMmbId>
+          </FinInstnId>
+        </CdtrAgt>
+        <Cdtr>
+          <Nm>Georgia Freight Brokerage Co</Nm>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <Othr>
+              <Id>5511223366</Id>
+            </Othr>
+          </Id>
+          <Tp>
+            <Cd>CACC</Cd>
+          </Tp>
+        </CdtrAcct>
+        <RmtInf>
+          <Strd>
+            <RfrdDocInf>
+              <Nb>INV-GFB-2026-0619</Nb>
+              <RltdDt>2026-06-10</RltdDt>
+            </RfrdDocInf>
+            <AddtlRmtInf>Q2 freight brokerage settlement</AddtlRmtInf>
+          </Strd>
+        </RmtInf>
+      </CdtTrfTxInf>
+    </PmtInf>
+  </CstmrCdtTrfInitn>
+</Document>

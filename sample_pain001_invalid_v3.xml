@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- INVALID TEST FILE: version 3 of the message (~2009), the exact scenario from
+     Steve's war story: a customer submitting a decade-old format.
+     The Pain001ToPacs008 flow must REJECT this file at the validation BRANCH. -->
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03">
+  <CstmrCdtTrfInitn>
+    <GrpHdr>
+      <MsgId>LEGACY-CUST-20260620-001</MsgId>
+      <CreDtTm>2026-06-20T08:00:00Z</CreDtTm>
+      <NbOfTxs>1</NbOfTxs>
+      <CtrlSum>12000.00</CtrlSum>
+      <InitgPty>
+        <Nm>Old ERP System Customer Corp</Nm>
+      </InitgPty>
+    </GrpHdr>
+    <PmtInf>
+      <PmtInfId>LEGACY-BATCH-001</PmtInfId>
+      <PmtMtd>TRF</PmtMtd>
+      <ReqdExctnDt>2026-06-21</ReqdExctnDt>
+      <Dbtr>
+        <Nm>Old ERP System Customer Corp</Nm>
+      </Dbtr>
+      <DbtrAcct>
+        <Id>
+          <Othr>
+            <Id>9900112233</Id>
+          </Othr>
+        </Id>
+      </DbtrAcct>
+      <DbtrAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <MmbId>061120084</MmbId>
+          </ClrSysMmbId>
+        </FinInstnId>
+      </DbtrAgt>
+      <CdtTrfTxInf>
+        <PmtId>
+          <InstrId>LEGACY-0001</InstrId>
+          <EndToEndId>E2E-LEGACY-0001</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="USD">12000.00</InstdAmt>
+        </Amt>
+        <CdtrAgt>
+          <FinInstnId>
+            <Nm>SOME OTHER BANK</Nm>
+            <ClrSysMmbId>
+              <MmbId>111000025</MmbId>
+            </ClrSysMmbId>
+          </FinInstnId>
+        </CdtrAgt>
+        <Cdtr>
+          <Nm>Legacy Vendor Inc</Nm>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <Othr>
+              <Id>7788990011</Id>
+            </Othr>
+          </Id>
+        </CdtrAcct>
+        <RmtInf>
+          <Ustrd>Legacy format payment</Ustrd>
+        </RmtInf>
+      </CdtTrfTxInf>
+    </PmtInf>
+  </CstmrCdtTrfInitn>
+</Document>

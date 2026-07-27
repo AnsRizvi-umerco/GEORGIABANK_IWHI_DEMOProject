@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08">
+  <FIToFICstmrCdtTrf>
+    <GrpHdr>
+      <MsgId>GBC-20260615-VENDOR-007-P8</MsgId>
+      <CreDtTm>2026-06-15T11:45:30Z</CreDtTm>
+      <NbOfTxs>3</NbOfTxs>
+      <TtlIntrBkSttlmAmt Ccy="USD">55000.00</TtlIntrBkSttlmAmt>
+      <IntrBkSttlmDt>2026-06-16</IntrBkSttlmDt>
+      <SttlmInf>
+        <SttlmMtd>CLRG</SttlmMtd>
+        <ClrSys>
+          <Cd>FDW</Cd>
+        </ClrSys>
+      </SttlmInf>
+      <InstgAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <ClrSysId>
+              <Cd>USABA</Cd>
+            </ClrSysId>
+            <MmbId>061120084</MmbId>
+          </ClrSysMmbId>
+        </FinInstnId>
+      </InstgAgt>
+    </GrpHdr>
+    <CdtTrfTxInf>
+      <PmtId>
+        <InstrId>GBC-INSTR-7001</InstrId>
+        <EndToEndId>E2E-SCE-2026-7001</EndToEndId>
+      </PmtId>
+      <IntrBkSttlmAmt Ccy="USD">15750.25</IntrBkSttlmAmt>
+      <ChrgBr>SLEV</ChrgBr>
+      <Dbtr>
+        <Nm>Savannah Coastal Exports LLC</Nm>
+      </Dbtr>
+      <DbtrAcct>
+        <Id>
+          <Othr>
+            <Id>3300112277</Id>
+          </Othr>
+        </Id>
+      </DbtrAcct>
+      <DbtrAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <MmbId>061120084</MmbId>
+          </ClrSysMmbId>
+        </FinInstnId>
+      </DbtrAgt>
+      <CdtrAgt>
+        <FinInstnId>
+          <Nm>FIFTH THIRD BANK NA</Nm>
+          <ClrSysMmbId>
+            <MmbId>042000314</MmbId>
+          </ClrSysMmbId>
+        </FinInstnId>
+      </CdtrAgt>
+      <Cdtr>
+        <Nm>Port City Stevedoring Inc</Nm>
+      </Cdtr>
+      <CdtrAcct>
+        <Id>
+          <Othr>
+            <Id>5511223344</Id>
+          </Othr>
+        </Id>
+      </CdtrAcct>
+      <RmtInf>
+        <Ustrd>June 2026 dock handling fees</Ustrd>
+      </RmtInf>
+    </CdtTrfTxInf>
+    <CdtTrfTxInf>
+      <PmtId>
+        <InstrId>GBC-INSTR-7002</InstrId>
+        <EndToEndId>E2E-SCE-2026-7002</EndToEndId>
+      </PmtId>
+      <IntrBkSttlmAmt Ccy="USD">8200.00</IntrBkSttlmAmt>
+      <ChrgBr>SLEV</ChrgBr>
+      <Dbtr>
+        <Nm>Savannah Coastal Exports LLC</Nm>
+      </Dbtr>
+      <DbtrAcct>
+        <Id>
+          <Othr>
+            <Id>3300112277</Id>
+          </Othr>
+        </Id>
+      </DbtrAcct>
+      <DbtrAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <MmbId>061120084</MmbId>
+          </ClrSysMmbId>
+        </FinInstnId>
+      </DbtrAgt>
+      <CdtrAgt>
+        <FinInstnId>
+          <Nm>SYNOVUS BANK</Nm>
+          <ClrSysMmbId>
+            <MmbId>061100606</MmbId>
+          </ClrSysMmbId>
+        </FinInstnId>
+      </CdtrAgt>
+      <Cdtr>
+        <Nm>Coastal Container Repair LLC</Nm>
+      </Cdtr>
+      <CdtrAcct>
+        <Id>
+          <Othr>
+            <Id>5511223355</Id>
+          </Othr>
+        </Id>
+      </CdtrAcct>
+      <RmtInf>
+        <Ustrd>Container refurb work order 4417</Ustrd>
+      </RmtInf>
+    </CdtTrfTxInf>
+    <CdtTrfTxInf>
+      <PmtId>
+        <InstrId>GBC-INSTR-7003</InstrId>
+        <EndToEndId>E2E-SCE-2026-7003</EndToEndId>
+      </PmtId>
+      <IntrBkSttlmAmt Ccy="USD">31049.75</IntrBkSttlmAmt>
+      <ChrgBr>SLEV</ChrgBr>
+      <Dbtr>
+        <Nm>Savannah Coastal Exports LLC</Nm>
+      </Dbtr>
+      <DbtrAcct>
+        <Id>
+          <Othr>
+            <Id>3300112277</Id>
+          </Othr>
+        </Id>
+      </DbtrAcct>
+      <DbtrAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <MmbId>061120084</MmbId>
+          </ClrSysMmbId>
+        </FinInstnId>
+      </DbtrAgt>
+      <CdtrAgt>
+        <FinInstnId>
+          <Nm>PNC BANK NA</Nm>
+          <ClrSysMmbId>
+            <MmbId>043000096</MmbId>
+          </ClrSysMmbId>
+        </FinInstnId>
+      </CdtrAgt>
+      <Cdtr>
+        <Nm>Georgia Freight Brokerage Co</Nm>
+      </Cdtr>
+      <CdtrAcct>
+        <Id>
+          <Othr>
+            <Id>5511223366</Id>
+          </Othr>
+        </Id>
+      </CdtrAcct>
+      <RmtInf>
+        <Ustrd>Q2 freight brokerage settlement</Ustrd>
+      </RmtInf>
+    </CdtTrfTxInf>
+  </FIToFICstmrCdtTrf>
+</Document>
