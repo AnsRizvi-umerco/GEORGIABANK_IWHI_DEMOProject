@@ -2,208 +2,19 @@
 <FLOW VERSION="3.2" CLEANUP="true">
   <COMMENT></COMMENT>
   <!-- nodes -->
-<INVOKE NAME="DecodeB2BContent" SERVICE="pub.string:base64Decode">
+<BRANCH LABELEXPRESSIONS="true">
   <COMMENT></COMMENT>
   <!-- nodes -->
-<MAP MODE="INPUT">
+<SEQUENCE NAME="painXml = /pain\.001\.001\.09/" EXIT-ON="FAILURE">
   <COMMENT></COMMENT>
-  <MAPTARGET>
-<Values version="2.0">
-  <record name="xml" javaclass="com.wm.util.Values">
-    <value name="node_type">record</value>
-    <value name="node_subtype">unknown</value>
-    <value name="is_public">false</value>
-    <value name="field_name">base64DecodeInput</value>
-    <value name="field_type">record</value>
-    <value name="field_dim">0</value>
-    <array name="rec_fields" type="record" depth="1">
-<record javaclass="com.wm.util.Values">
-  <value name="node_type">field</value>
-  <value name="node_subtype">unknown</value>
-  <value name="node_comment"></value>
-  <record name="node_hints" javaclass="com.wm.util.Values">
-    <value name="field_largerEditor">false</value>
-    <value name="field_password">false</value>
-    <value name="field_usereditable">false</value>
-  </record>
-  <value name="is_public">false</value>
-  <value name="field_name">string</value>
-  <value name="field_type">string</value>
-  <value name="field_dim">0</value>
-  <value name="nillable">true</value>
-  <value name="form_qualified">false</value>
-  <value name="is_global">false</value>
-</record>
-    </array>
-  </record>
-</Values>
-  </MAPTARGET>
-  <MAPSOURCE>
-<Values version="2.0">
-  <record name="xml" javaclass="com.wm.util.Values">
-    <value name="node_type">record</value>
-    <value name="node_subtype">unknown</value>
-    <value name="is_public">false</value>
-    <value name="field_type">record</value>
-    <value name="field_dim">0</value>
-    <array name="rec_fields" type="record" depth="1">
-<record javaclass="com.wm.util.Values">
-  <value name="node_type">record</value>
-  <value name="node_subtype">unknown</value>
-  <value name="is_public">false</value>
-  <value name="field_name">request</value>
-  <value name="field_type">record</value>
-  <value name="field_dim">0</value>
-  <value name="nillable">true</value>
-  <value name="form_qualified">false</value>
-  <value name="is_global">false</value>
-  <array name="rec_fields" type="record" depth="1">
-<record javaclass="com.wm.util.Values">
-  <value name="node_type">field</value>
-  <value name="node_subtype">unknown</value>
-  <value name="node_comment"></value>
-  <record name="node_hints" javaclass="com.wm.util.Values">
-    <value name="field_largerEditor">false</value>
-    <value name="field_password">false</value>
-    <value name="field_usereditable">false</value>
-  </record>
-  <value name="is_public">false</value>
-  <value name="field_name">content</value>
-  <value name="field_type">string</value>
-  <value name="field_dim">0</value>
-  <value name="nillable">true</value>
-  <value name="form_qualified">false</value>
-  <value name="is_global">false</value>
-</record>
-<record javaclass="com.wm.util.Values">
-  <value name="node_type">field</value>
-  <value name="node_subtype">unknown</value>
-  <value name="node_comment"></value>
-  <record name="node_hints" javaclass="com.wm.util.Values">
-    <value name="field_largerEditor">false</value>
-    <value name="field_password">false</value>
-    <value name="field_usereditable">false</value>
-  </record>
-  <value name="is_public">false</value>
-  <value name="field_name">encoding</value>
-  <value name="field_type">string</value>
-  <value name="field_dim">0</value>
-  <value name="nillable">true</value>
-  <value name="form_qualified">false</value>
-  <value name="is_global">false</value>
-</record>
-  </array>
-</record>
-    </array>
-  </record>
-</Values>
-  </MAPSOURCE>
-  <!-- nodes -->
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="true" GLOBALVARIABLES="false" FIELD="/string;1;0">
-  <DATA ENCODING="XMLValues" I18N="true">
-<Values version="2.0">
-  <value name="xml">%request/content%</value>
-</Values>
-</DATA>
-</MAPSET>
-</MAP>
-<MAP MODE="OUTPUT">
+</SEQUENCE>
+<SEQUENCE NAME="$default" EXIT-ON="FAILURE">
   <COMMENT></COMMENT>
-
-</MAP>
-</INVOKE>
-<INVOKE NAME="BytesToXmlString" SERVICE="pub.string:bytesToString">
+<EXIT NAME="EXIT" FROM="$parent" SIGNAL="FAILURE" FAILURE-MESSAGE="Input is not a pain.001.001.09 document - translation aborted">
   <COMMENT></COMMENT>
-  <!-- nodes -->
-<MAP MODE="INPUT">
-  <COMMENT></COMMENT>
-  <MAPTARGET>
-<Values version="2.0">
-  <record name="xml" javaclass="com.wm.util.Values">
-    <value name="node_type">record</value>
-    <value name="node_subtype">unknown</value>
-    <value name="is_public">false</value>
-    <value name="field_name">bytesToStringInput</value>
-    <value name="field_type">record</value>
-    <value name="field_dim">0</value>
-    <array name="rec_fields" type="record" depth="1">
-<record javaclass="com.wm.util.Values">
-  <value name="node_type">field</value>
-  <value name="node_subtype">unknown</value>
-  <value name="node_comment"></value>
-  <record name="node_hints" javaclass="com.wm.util.Values">
-    <value name="field_largerEditor">false</value>
-    <value name="field_password">false</value>
-    <value name="field_usereditable">false</value>
-  </record>
-  <value name="is_public">false</value>
-  <value name="field_name">bytes</value>
-  <value name="field_type">object</value>
-  <value name="field_dim">0</value>
-  <value name="nillable">true</value>
-  <value name="form_qualified">false</value>
-  <value name="is_global">false</value>
-</record>
-<record javaclass="com.wm.util.Values">
-  <value name="node_type">field</value>
-  <value name="node_subtype">unknown</value>
-  <value name="node_comment"></value>
-  <record name="node_hints" javaclass="com.wm.util.Values">
-    <value name="field_largerEditor">false</value>
-    <value name="field_password">false</value>
-    <value name="field_usereditable">false</value>
-  </record>
-  <value name="is_public">false</value>
-  <value name="field_name">encoding</value>
-  <value name="field_type">string</value>
-  <value name="field_dim">0</value>
-  <value name="nillable">true</value>
-  <value name="form_qualified">false</value>
-  <value name="is_global">false</value>
-</record>
-    </array>
-  </record>
-</Values>
-  </MAPTARGET>
-  <MAPSOURCE>
-<Values version="2.0">
-  <record name="xml" javaclass="com.wm.util.Values">
-    <value name="node_type">record</value>
-    <value name="node_subtype">unknown</value>
-    <value name="is_public">false</value>
-    <value name="field_type">record</value>
-    <value name="field_dim">0</value>
-    <array name="rec_fields" type="record" depth="1">
-<record javaclass="com.wm.util.Values">
-  <value name="node_type">unknown</value>
-  <value name="node_subtype">unknown</value>
-  <value name="is_public">false</value>
-  <value name="field_name">value</value>
-  <value name="field_type">object</value>
-  <value name="field_dim">0</value>
-  <value name="nillable">true</value>
-  <value name="form_qualified">false</value>
-  <value name="is_global">false</value>
-</record>
-    </array>
-  </record>
-</Values>
-  </MAPSOURCE>
-  <!-- nodes -->
-<MAPCOPY FROM="/value;1;0" TO="/bytes;1;0"/>
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/encoding;1;0">
-  <DATA ENCODING="XMLValues" I18N="true">
-<Values version="2.0">
-  <value name="xml">UTF-8</value>
-</Values>
-</DATA>
-</MAPSET>
-</MAP>
-<MAP MODE="OUTPUT">
-  <COMMENT></COMMENT>
-<MAPCOPY FROM="/string;1;0" TO="/painXml;1;0"/>
-</MAP>
-</INVOKE>
+</EXIT>
+</SEQUENCE>
+</BRANCH>
 <INVOKE NAME="ExtractMsgId" SERVICE="pub.string:replace">
   <COMMENT></COMMENT>
   <!-- nodes -->
@@ -1691,16 +1502,30 @@
 <Values version="2.0">
   <value name="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08"&gt;
-&lt;FIToFICstmrCdtTrf&gt;
-&lt;GrpHdr&gt;
-&lt;MsgId&gt;%msgId%-P8&lt;/MsgId&gt;
-&lt;CreDtTm&gt;%creDtTm%&lt;/CreDtTm&gt;
-&lt;NbOfTxs&gt;%nbOfTxs%&lt;/NbOfTxs&gt;
-&lt;TtlIntrBkSttlmAmt Ccy="USD"&gt;%ctrlSum%&lt;/TtlIntrBkSttlmAmt&gt;
-&lt;IntrBkSttlmDt&gt;%reqdExctnDt%&lt;/IntrBkSttlmDt&gt;
-&lt;SttlmInf&gt;&lt;SttlmMtd&gt;CLRG&lt;/SttlmMtd&gt;&lt;ClrSys&gt;&lt;Cd&gt;FDW&lt;/Cd&gt;&lt;/ClrSys&gt;&lt;/SttlmInf&gt;
-&lt;InstgAgt&gt;&lt;FinInstnId&gt;&lt;ClrSysMmbId&gt;&lt;ClrSysId&gt;&lt;Cd&gt;USABA&lt;/Cd&gt;&lt;/ClrSysId&gt;&lt;MmbId&gt;%dbtrAgtMmbId%&lt;/MmbId&gt;&lt;/ClrSysMmbId&gt;&lt;/FinInstnId&gt;&lt;/InstgAgt&gt;
-&lt;/GrpHdr&gt;</value>
+  &lt;FIToFICstmrCdtTrf&gt;
+    &lt;GrpHdr&gt;
+      &lt;MsgId&gt;%msgId%-P8&lt;/MsgId&gt;
+      &lt;CreDtTm&gt;%creDtTm%&lt;/CreDtTm&gt;
+      &lt;NbOfTxs&gt;%nbOfTxs%&lt;/NbOfTxs&gt;
+      &lt;TtlIntrBkSttlmAmt Ccy="USD"&gt;%ctrlSum%&lt;/TtlIntrBkSttlmAmt&gt;
+      &lt;IntrBkSttlmDt&gt;%reqdExctnDt%&lt;/IntrBkSttlmDt&gt;
+      &lt;SttlmInf&gt;
+        &lt;SttlmMtd&gt;CLRG&lt;/SttlmMtd&gt;
+        &lt;ClrSys&gt;
+          &lt;Cd&gt;FDW&lt;/Cd&gt;
+        &lt;/ClrSys&gt;
+      &lt;/SttlmInf&gt;
+      &lt;InstgAgt&gt;
+        &lt;FinInstnId&gt;
+          &lt;ClrSysMmbId&gt;
+            &lt;ClrSysId&gt;
+              &lt;Cd&gt;USABA&lt;/Cd&gt;
+            &lt;/ClrSysId&gt;
+            &lt;MmbId&gt;%dbtrAgtMmbId%&lt;/MmbId&gt;
+          &lt;/ClrSysMmbId&gt;
+        &lt;/FinInstnId&gt;
+      &lt;/InstgAgt&gt;
+    &lt;/GrpHdr&gt;</value>
 </Values>
 </DATA>
 </MAPSET>
@@ -3155,18 +2980,52 @@
   <DATA ENCODING="XMLValues" I18N="true">
 <Values version="2.0">
   <value name="xml">%pacs008%
-&lt;CdtTrfTxInf&gt;
-&lt;PmtId&gt;&lt;InstrId&gt;%instrId%&lt;/InstrId&gt;&lt;EndToEndId&gt;%endToEndId%&lt;/EndToEndId&gt;&lt;/PmtId&gt;
-&lt;IntrBkSttlmAmt Ccy="%txCcy%"&gt;%txAmt%&lt;/IntrBkSttlmAmt&gt;
-&lt;ChrgBr&gt;SLEV&lt;/ChrgBr&gt;
-&lt;Dbtr&gt;&lt;Nm&gt;%dbtrNm%&lt;/Nm&gt;&lt;/Dbtr&gt;
-&lt;DbtrAcct&gt;&lt;Id&gt;&lt;Othr&gt;&lt;Id&gt;%dbtrAcctId%&lt;/Id&gt;&lt;/Othr&gt;&lt;/Id&gt;&lt;/DbtrAcct&gt;
-&lt;DbtrAgt&gt;&lt;FinInstnId&gt;&lt;ClrSysMmbId&gt;&lt;MmbId&gt;%dbtrAgtMmbId%&lt;/MmbId&gt;&lt;/ClrSysMmbId&gt;&lt;/FinInstnId&gt;&lt;/DbtrAgt&gt;
-&lt;CdtrAgt&gt;&lt;FinInstnId&gt;&lt;Nm&gt;%cdtrAgtNm%&lt;/Nm&gt;&lt;ClrSysMmbId&gt;&lt;MmbId&gt;%cdtrAgtMmbId%&lt;/MmbId&gt;&lt;/ClrSysMmbId&gt;&lt;/FinInstnId&gt;&lt;/CdtrAgt&gt;
-&lt;Cdtr&gt;&lt;Nm&gt;%cdtrNm%&lt;/Nm&gt;&lt;/Cdtr&gt;
-&lt;CdtrAcct&gt;&lt;Id&gt;&lt;Othr&gt;&lt;Id&gt;%cdtrAcctId%&lt;/Id&gt;&lt;/Othr&gt;&lt;/Id&gt;&lt;/CdtrAcct&gt;
-&lt;RmtInf&gt;&lt;Ustrd&gt;%rmtDesc%&lt;/Ustrd&gt;&lt;/RmtInf&gt;
-&lt;/CdtTrfTxInf&gt;</value>
+    &lt;CdtTrfTxInf&gt;
+      &lt;PmtId&gt;
+        &lt;InstrId&gt;%instrId%&lt;/InstrId&gt;
+        &lt;EndToEndId&gt;%endToEndId%&lt;/EndToEndId&gt;
+      &lt;/PmtId&gt;
+      &lt;IntrBkSttlmAmt Ccy="%txCcy%"&gt;%txAmt%&lt;/IntrBkSttlmAmt&gt;
+      &lt;ChrgBr&gt;SLEV&lt;/ChrgBr&gt;
+      &lt;Dbtr&gt;
+        &lt;Nm&gt;%dbtrNm%&lt;/Nm&gt;
+      &lt;/Dbtr&gt;
+      &lt;DbtrAcct&gt;
+        &lt;Id&gt;
+          &lt;Othr&gt;
+            &lt;Id&gt;%dbtrAcctId%&lt;/Id&gt;
+          &lt;/Othr&gt;
+        &lt;/Id&gt;
+      &lt;/DbtrAcct&gt;
+      &lt;DbtrAgt&gt;
+        &lt;FinInstnId&gt;
+          &lt;ClrSysMmbId&gt;
+            &lt;MmbId&gt;%dbtrAgtMmbId%&lt;/MmbId&gt;
+          &lt;/ClrSysMmbId&gt;
+        &lt;/FinInstnId&gt;
+      &lt;/DbtrAgt&gt;
+      &lt;CdtrAgt&gt;
+        &lt;FinInstnId&gt;
+          &lt;Nm&gt;%cdtrAgtNm%&lt;/Nm&gt;
+          &lt;ClrSysMmbId&gt;
+            &lt;MmbId&gt;%cdtrAgtMmbId%&lt;/MmbId&gt;
+          &lt;/ClrSysMmbId&gt;
+        &lt;/FinInstnId&gt;
+      &lt;/CdtrAgt&gt;
+      &lt;Cdtr&gt;
+        &lt;Nm&gt;%cdtrNm%&lt;/Nm&gt;
+      &lt;/Cdtr&gt;
+      &lt;CdtrAcct&gt;
+        &lt;Id&gt;
+          &lt;Othr&gt;
+            &lt;Id&gt;%cdtrAcctId%&lt;/Id&gt;
+          &lt;/Othr&gt;
+        &lt;/Id&gt;
+      &lt;/CdtrAcct&gt;
+      &lt;RmtInf&gt;
+        &lt;Ustrd&gt;%rmtDesc%&lt;/Ustrd&gt;
+      &lt;/RmtInf&gt;
+    &lt;/CdtTrfTxInf&gt;</value>
 </Values>
 </DATA>
 </MAPSET>
@@ -3238,7 +3097,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 <Values version="2.0">
   <value name="xml">%pacs008%
-&lt;/FIToFICstmrCdtTrf&gt;
+  &lt;/FIToFICstmrCdtTrf&gt;
 &lt;/Document&gt;</value>
 </Values>
 </DATA>
