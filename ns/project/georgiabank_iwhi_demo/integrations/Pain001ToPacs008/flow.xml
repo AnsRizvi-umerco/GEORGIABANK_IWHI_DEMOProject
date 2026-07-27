@@ -99,7 +99,13 @@
 </Values>
   </MAPSOURCE>
   <!-- nodes -->
-<MAPCOPY FROM="/request/content;1;0" TO="/string;1;0"/>
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="true" GLOBALVARIABLES="false" FIELD="/string;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+<Values version="2.0">
+  <value name="xml">%request/content%</value>
+</Values>
+</DATA>
+</MAPSET>
 </MAP>
 <MAP MODE="OUTPUT">
   <COMMENT></COMMENT>

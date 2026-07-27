@@ -197,7 +197,7 @@ mt = wrap_fields([svc_field("string")], "base64DecodeInput")
 ms = wrap_fields([field_decl("request", "record", node_type="record",
                              rec_children=[svc_field("content"), svc_field("encoding")])])
 steps.append((invoke("DecodeB2BContent", "pub.string:base64Decode",
-                     mapcopy("request/content", "string"), mt, ms),
+                     mapset("string", "%request/content%", variables=True), mt, ms),
               "invoke", ("base64Decode", "pub.string:base64Decode", "String", "string"), None))
 
 # 1: bytesToString (value -> painXml)
