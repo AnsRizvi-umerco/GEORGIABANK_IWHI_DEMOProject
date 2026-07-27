@@ -1,0 +1,9 @@
+version: "1.0"
+info:
+  model: int-scaffold
+packages:
+- name: GEORGIABANK_IWHI_DEMOProject
+  gitServerName: AnsUmerco
+  gitUrl: https://github.com/AnsRizvi-umerco
+  gitUsername: AnsRizvi-umerco
+  gitBranch: main
