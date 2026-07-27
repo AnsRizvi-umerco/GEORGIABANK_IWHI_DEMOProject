@@ -84,9 +84,9 @@
   </record>
   <record name="node_hints" javaclass="com.wm.util.Values">
     <value name="createdBy">ans.rizvi@umerco.com</value>
-    <value name="createdDate">1785183093474</value>
+    <value name="createdDate">1785183488042</value>
     <value name="lastModifiedBy">ans.rizvi@umerco.com</value>
-    <value name="lastModifiedDate">1785183093474</value>
+    <value name="lastModifiedDate">1785183488042</value>
     <value name="displayName">Edi820ToExcel</value>
     <value name="description">X12 EDI 820 (payment order/remittance advice) -&gt; Excel-openable CSV. Validates ST*820 + BPR, extracts payment header, one row per RMR invoice, TOTAL row. Works for any number of invoices. DAFS-safe.</value>
     <record name="stepNodeHints" javaclass="com.wm.util.Values">
@@ -291,8 +291,8 @@
     <null name="services"/>
   </record>
   <record name="serviceName" javaclass="com.wm.util.Values">
-    <value name="displayName">tokenize</value>
-    <value name="serviceName">pub.string:tokenize</value>
+    <value name="displayName">replace</value>
+    <value name="serviceName">pub.string:replace</value>
     <value name="transformerSupport">true</value>
   </record>
   <number name="ui_step_index" type="Long">9</number>
@@ -307,13 +307,13 @@
   <null name="name"/>
   <value name="itemType">SERVICES</value>
   <record name="serviceInfo" javaclass="com.wm.util.Values">
-    <value name="groupDisplayName">List</value>
-    <value name="groupName">list</value>
+    <value name="groupDisplayName">String</value>
+    <value name="groupName">string</value>
     <null name="services"/>
   </record>
   <record name="serviceName" javaclass="com.wm.util.Values">
-    <value name="displayName">sizeOfList</value>
-    <value name="serviceName">pub.list:sizeOfList</value>
+    <value name="displayName">tokenize</value>
+    <value name="serviceName">pub.string:tokenize</value>
     <value name="transformerSupport">true</value>
   </record>
   <number name="ui_step_index" type="Long">10</number>
@@ -325,20 +325,41 @@
 </record>
 <null name="/11/0"/>
 <record name="/12" javaclass="com.wm.util.Values">
-  <value name="itemType">CONTROLS</value>
-  <value name="name">TRANSFORM</value>
+  <null name="name"/>
+  <value name="itemType">SERVICES</value>
+  <record name="serviceInfo" javaclass="com.wm.util.Values">
+    <value name="groupDisplayName">List</value>
+    <value name="groupName">list</value>
+    <null name="services"/>
+  </record>
+  <record name="serviceName" javaclass="com.wm.util.Values">
+    <value name="displayName">sizeOfList</value>
+    <value name="serviceName">pub.list:sizeOfList</value>
+    <value name="transformerSupport">true</value>
+  </record>
   <number name="ui_step_index" type="Long">11</number>
   <value name="nodePathNew">12</value>
   <number name="nodeIndex" type="Long">12</number>
   <number name="lineNumberForDebug" type="Long">11</number>
+  <null name="mapSet"/>
+  <null name="outputMapSet"/>
+</record>
+<null name="/12/0"/>
+<record name="/13" javaclass="com.wm.util.Values">
+  <value name="itemType">CONTROLS</value>
+  <value name="name">TRANSFORM</value>
+  <number name="ui_step_index" type="Long">12</number>
+  <value name="nodePathNew">13</value>
+  <number name="nodeIndex" type="Long">13</number>
+  <number name="lineNumberForDebug" type="Long">12</number>
   <array name="map" type="object" depth="1" javaclass="java.lang.Object"></array>
   <array name="mapSet" type="object" depth="1" javaclass="java.lang.Object"></array>
   <array name="mapDelete" type="object" depth="1" javaclass="java.lang.Object"></array>
   <array name="transformer" type="object" depth="1" javaclass="java.lang.Object"></array>
   <array name="lookupTransformer" type="object" depth="1" javaclass="java.lang.Object"></array>
 </record>
-<null name="/12/0"/>
-<record name="/13" javaclass="com.wm.util.Values">
+<null name="/13/0"/>
+<record name="/14" javaclass="com.wm.util.Values">
   <value name="name">REPEAT</value>
   <value name="itemType">CONTROLS</value>
   <record name="in_array" javaclass="com.wm.util.Values">
@@ -349,32 +370,11 @@
     <Boolean name="isLink">false</Boolean>
     <null name="wrapper_type"/>
   </record>
-  <value name="nodePathNew">13</value>
-  <number name="nodeIndex" type="Long">13</number>
-  <number name="lineNumberForDebug" type="Long">12</number>
-</record>
-<record name="/13/0" javaclass="com.wm.util.Values">
-  <null name="name"/>
-  <value name="itemType">SERVICES</value>
-  <record name="serviceInfo" javaclass="com.wm.util.Values">
-    <value name="groupDisplayName">String</value>
-    <value name="groupName">string</value>
-    <null name="services"/>
-  </record>
-  <record name="serviceName" javaclass="com.wm.util.Values">
-    <value name="displayName">replace</value>
-    <value name="serviceName">pub.string:replace</value>
-    <value name="transformerSupport">true</value>
-  </record>
-  <number name="ui_step_index" type="Long">13</number>
-  <value name="nodePathNew">13.0</value>
-  <number name="nodeIndex" type="Long">0</number>
+  <value name="nodePathNew">14</value>
+  <number name="nodeIndex" type="Long">14</number>
   <number name="lineNumberForDebug" type="Long">13</number>
-  <null name="mapSet"/>
-  <null name="outputMapSet"/>
 </record>
-<null name="/13/0/0"/>
-<record name="/13/1" javaclass="com.wm.util.Values">
+<record name="/14/0" javaclass="com.wm.util.Values">
   <null name="name"/>
   <value name="itemType">SERVICES</value>
   <record name="serviceInfo" javaclass="com.wm.util.Values">
@@ -388,14 +388,14 @@
     <value name="transformerSupport">true</value>
   </record>
   <number name="ui_step_index" type="Long">14</number>
-  <value name="nodePathNew">13.1</value>
-  <number name="nodeIndex" type="Long">1</number>
+  <value name="nodePathNew">14.0</value>
+  <number name="nodeIndex" type="Long">0</number>
   <number name="lineNumberForDebug" type="Long">14</number>
   <null name="mapSet"/>
   <null name="outputMapSet"/>
 </record>
-<null name="/13/1/0"/>
-<record name="/13/2" javaclass="com.wm.util.Values">
+<null name="/14/0/0"/>
+<record name="/14/1" javaclass="com.wm.util.Values">
   <null name="name"/>
   <value name="itemType">SERVICES</value>
   <record name="serviceInfo" javaclass="com.wm.util.Values">
@@ -409,14 +409,14 @@
     <value name="transformerSupport">true</value>
   </record>
   <number name="ui_step_index" type="Long">15</number>
-  <value name="nodePathNew">13.2</value>
-  <number name="nodeIndex" type="Long">2</number>
+  <value name="nodePathNew">14.1</value>
+  <number name="nodeIndex" type="Long">1</number>
   <number name="lineNumberForDebug" type="Long">15</number>
   <null name="mapSet"/>
   <null name="outputMapSet"/>
 </record>
-<null name="/13/2/0"/>
-<record name="/13/3" javaclass="com.wm.util.Values">
+<null name="/14/1/0"/>
+<record name="/14/2" javaclass="com.wm.util.Values">
   <null name="name"/>
   <value name="itemType">SERVICES</value>
   <record name="serviceInfo" javaclass="com.wm.util.Values">
@@ -430,14 +430,14 @@
     <value name="transformerSupport">true</value>
   </record>
   <number name="ui_step_index" type="Long">16</number>
-  <value name="nodePathNew">13.3</value>
-  <number name="nodeIndex" type="Long">3</number>
+  <value name="nodePathNew">14.2</value>
+  <number name="nodeIndex" type="Long">2</number>
   <number name="lineNumberForDebug" type="Long">16</number>
   <null name="mapSet"/>
   <null name="outputMapSet"/>
 </record>
-<null name="/13/3/0"/>
-<record name="/13/4" javaclass="com.wm.util.Values">
+<null name="/14/2/0"/>
+<record name="/14/3" javaclass="com.wm.util.Values">
   <null name="name"/>
   <value name="itemType">SERVICES</value>
   <record name="serviceInfo" javaclass="com.wm.util.Values">
@@ -451,33 +451,40 @@
     <value name="transformerSupport">true</value>
   </record>
   <number name="ui_step_index" type="Long">17</number>
-  <value name="nodePathNew">13.4</value>
-  <number name="nodeIndex" type="Long">4</number>
+  <value name="nodePathNew">14.3</value>
+  <number name="nodeIndex" type="Long">3</number>
   <number name="lineNumberForDebug" type="Long">17</number>
   <null name="mapSet"/>
   <null name="outputMapSet"/>
 </record>
-<null name="/13/4/0"/>
-<record name="/13/5" javaclass="com.wm.util.Values">
-  <value name="itemType">CONTROLS</value>
-  <value name="name">TRANSFORM</value>
+<null name="/14/3/0"/>
+<record name="/14/4" javaclass="com.wm.util.Values">
+  <null name="name"/>
+  <value name="itemType">SERVICES</value>
+  <record name="serviceInfo" javaclass="com.wm.util.Values">
+    <value name="groupDisplayName">String</value>
+    <value name="groupName">string</value>
+    <null name="services"/>
+  </record>
+  <record name="serviceName" javaclass="com.wm.util.Values">
+    <value name="displayName">replace</value>
+    <value name="serviceName">pub.string:replace</value>
+    <value name="transformerSupport">true</value>
+  </record>
   <number name="ui_step_index" type="Long">18</number>
-  <value name="nodePathNew">13.5</value>
-  <number name="nodeIndex" type="Long">5</number>
+  <value name="nodePathNew">14.4</value>
+  <number name="nodeIndex" type="Long">4</number>
   <number name="lineNumberForDebug" type="Long">18</number>
-  <array name="map" type="object" depth="1" javaclass="java.lang.Object"></array>
-  <array name="mapSet" type="object" depth="1" javaclass="java.lang.Object"></array>
-  <array name="mapDelete" type="object" depth="1" javaclass="java.lang.Object"></array>
-  <array name="transformer" type="object" depth="1" javaclass="java.lang.Object"></array>
-  <array name="lookupTransformer" type="object" depth="1" javaclass="java.lang.Object"></array>
+  <null name="mapSet"/>
+  <null name="outputMapSet"/>
 </record>
-<null name="/13/5/0"/>
-<record name="/14" javaclass="com.wm.util.Values">
+<null name="/14/4/0"/>
+<record name="/14/5" javaclass="com.wm.util.Values">
   <value name="itemType">CONTROLS</value>
   <value name="name">TRANSFORM</value>
   <number name="ui_step_index" type="Long">19</number>
-  <value name="nodePathNew">14</value>
-  <number name="nodeIndex" type="Long">14</number>
+  <value name="nodePathNew">14.5</value>
+  <number name="nodeIndex" type="Long">5</number>
   <number name="lineNumberForDebug" type="Long">19</number>
   <array name="map" type="object" depth="1" javaclass="java.lang.Object"></array>
   <array name="mapSet" type="object" depth="1" javaclass="java.lang.Object"></array>
@@ -485,8 +492,22 @@
   <array name="transformer" type="object" depth="1" javaclass="java.lang.Object"></array>
   <array name="lookupTransformer" type="object" depth="1" javaclass="java.lang.Object"></array>
 </record>
-<null name="/14/0"/>
+<null name="/14/5/0"/>
 <record name="/15" javaclass="com.wm.util.Values">
+  <value name="itemType">CONTROLS</value>
+  <value name="name">TRANSFORM</value>
+  <number name="ui_step_index" type="Long">20</number>
+  <value name="nodePathNew">15</value>
+  <number name="nodeIndex" type="Long">15</number>
+  <number name="lineNumberForDebug" type="Long">20</number>
+  <array name="map" type="object" depth="1" javaclass="java.lang.Object"></array>
+  <array name="mapSet" type="object" depth="1" javaclass="java.lang.Object"></array>
+  <array name="mapDelete" type="object" depth="1" javaclass="java.lang.Object"></array>
+  <array name="transformer" type="object" depth="1" javaclass="java.lang.Object"></array>
+  <array name="lookupTransformer" type="object" depth="1" javaclass="java.lang.Object"></array>
+</record>
+<null name="/15/0"/>
+<record name="/16" javaclass="com.wm.util.Values">
   <null name="name"/>
   <value name="itemType">SERVICES</value>
   <record name="serviceInfo" javaclass="com.wm.util.Values">
@@ -499,14 +520,14 @@
     <value name="serviceName">pub.flow:debugLog</value>
     <value name="transformerSupport">true</value>
   </record>
-  <number name="ui_step_index" type="Long">20</number>
-  <value name="nodePathNew">15</value>
-  <number name="nodeIndex" type="Long">15</number>
-  <number name="lineNumberForDebug" type="Long">20</number>
+  <number name="ui_step_index" type="Long">21</number>
+  <value name="nodePathNew">16</value>
+  <number name="nodeIndex" type="Long">16</number>
+  <number name="lineNumberForDebug" type="Long">21</number>
   <null name="mapSet"/>
   <null name="outputMapSet"/>
 </record>
-<null name="/15/0"/>
+<null name="/16/0"/>
     </record>
   </record>
 </Values>

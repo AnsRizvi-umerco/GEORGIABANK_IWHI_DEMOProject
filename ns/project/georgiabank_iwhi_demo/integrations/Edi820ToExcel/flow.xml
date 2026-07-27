@@ -1008,7 +1008,7 @@
 <MAPCOPY FROM="/value;1;0" TO="/payeeName;1;0"/>
 </MAP>
 </INVOKE>
-<INVOKE NAME="ExtractRmrRegion" SERVICE="pub.string:replace">
+<INVOKE NAME="NormalizeRmr" SERVICE="pub.string:replace">
   <COMMENT></COMMENT>
   <!-- nodes -->
 <MAP MODE="INPUT">
@@ -1124,7 +1124,147 @@
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/searchString;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 <Values version="2.0">
-  <value name="xml">(?s)^.*?RMR\*(.*)$</value>
+  <value name="xml">RMR\*</value>
+</Values>
+</DATA>
+</MAPSET>
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/replaceString;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+<Values version="2.0">
+  <value name="xml">##RMR##</value>
+</Values>
+</DATA>
+</MAPSET>
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/useRegex;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+<Values version="2.0">
+  <value name="xml">true</value>
+</Values>
+</DATA>
+</MAPSET>
+</MAP>
+<MAP MODE="OUTPUT">
+  <COMMENT></COMMENT>
+<MAPCOPY FROM="/value;1;0" TO="/ediNorm;1;0"/>
+</MAP>
+</INVOKE>
+<INVOKE NAME="ExtractRmrRegion" SERVICE="pub.string:replace">
+  <COMMENT></COMMENT>
+  <!-- nodes -->
+<MAP MODE="INPUT">
+  <COMMENT></COMMENT>
+  <MAPTARGET>
+<Values version="2.0">
+  <record name="xml" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_name">replaceInput</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <array name="rec_fields" type="record" depth="1">
+<record javaclass="com.wm.util.Values">
+  <value name="node_type">field</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_comment"></value>
+  <record name="node_hints" javaclass="com.wm.util.Values">
+    <value name="field_largerEditor">false</value>
+    <value name="field_password">false</value>
+    <value name="field_usereditable">false</value>
+  </record>
+  <value name="is_public">false</value>
+  <value name="field_name">inString</value>
+  <value name="field_type">string</value>
+  <value name="field_dim">0</value>
+  <value name="nillable">true</value>
+  <value name="form_qualified">false</value>
+  <value name="is_global">false</value>
+</record>
+<record javaclass="com.wm.util.Values">
+  <value name="node_type">field</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_comment"></value>
+  <record name="node_hints" javaclass="com.wm.util.Values">
+    <value name="field_largerEditor">false</value>
+    <value name="field_password">false</value>
+    <value name="field_usereditable">false</value>
+  </record>
+  <value name="is_public">false</value>
+  <value name="field_name">searchString</value>
+  <value name="field_type">string</value>
+  <value name="field_dim">0</value>
+  <value name="nillable">true</value>
+  <value name="form_qualified">false</value>
+  <value name="is_global">false</value>
+</record>
+<record javaclass="com.wm.util.Values">
+  <value name="node_type">field</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_comment"></value>
+  <record name="node_hints" javaclass="com.wm.util.Values">
+    <value name="field_largerEditor">false</value>
+    <value name="field_password">false</value>
+    <value name="field_usereditable">false</value>
+  </record>
+  <value name="is_public">false</value>
+  <value name="field_name">replaceString</value>
+  <value name="field_type">string</value>
+  <value name="field_dim">0</value>
+  <value name="nillable">true</value>
+  <value name="form_qualified">false</value>
+  <value name="is_global">false</value>
+</record>
+<record javaclass="com.wm.util.Values">
+  <value name="node_type">field</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_comment"></value>
+  <record name="node_hints" javaclass="com.wm.util.Values">
+    <value name="field_largerEditor">false</value>
+    <value name="field_password">false</value>
+    <value name="field_usereditable">false</value>
+  </record>
+  <value name="is_public">false</value>
+  <value name="field_name">useRegex</value>
+  <value name="field_type">string</value>
+  <value name="field_dim">0</value>
+  <value name="nillable">true</value>
+  <value name="form_qualified">false</value>
+  <value name="is_global">false</value>
+</record>
+    </array>
+  </record>
+</Values>
+  </MAPTARGET>
+  <MAPSOURCE>
+<Values version="2.0">
+  <record name="xml" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <array name="rec_fields" type="record" depth="1">
+<record javaclass="com.wm.util.Values">
+  <value name="node_type">unknown</value>
+  <value name="node_subtype">unknown</value>
+  <value name="is_public">false</value>
+  <value name="field_name">ediNorm</value>
+  <value name="field_type">string</value>
+  <value name="field_dim">0</value>
+  <value name="nillable">true</value>
+  <value name="form_qualified">false</value>
+  <value name="is_global">false</value>
+</record>
+    </array>
+  </record>
+</Values>
+  </MAPSOURCE>
+  <!-- nodes -->
+<MAPCOPY FROM="/ediNorm;1;0" TO="/inString;1;0"/>
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/searchString;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+<Values version="2.0">
+  <value name="xml">(?s)^.*?##RMR##(.*)$</value>
 </Values>
 </DATA>
 </MAPSET>
@@ -1247,7 +1387,7 @@
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/delim;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 <Values version="2.0">
-  <value name="xml">RMR*</value>
+  <value name="xml">##RMR##</value>
 </Values>
 </DATA>
 </MAPSET>

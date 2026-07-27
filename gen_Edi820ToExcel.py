@@ -35,8 +35,12 @@ HDR_EXTRACTS = [
     ("FormatPayDate",     "payDateRaw", r'(?s)^(\d{4})(\d{2})(\d{2})$',                             "payDateFmt"),
     ("ExtractPayerName",  "edi820",     r'(?s).*?N1\*PR\*([^*~]*).*',                               "payerName"),
     ("ExtractPayeeName",  "edi820",     r'(?s).*?N1\*PE\*([^*~]*).*',                               "payeeName"),
-    ("ExtractRmrRegion",  "edi820",     r'(?s)^.*?RMR\*(.*)$',                                      "rmrRegion"),
+    # tokenize's delim is regex-interpreted in this tenant ("RMR*" matched only "RMR",
+    # leaving "*IV*..." blocks). Normalize RMR* to a metachar-free sentinel, split on that.
+    ("NormalizeRmr",      "edi820",     r'RMR\*',                                                   "ediNorm"),
+    ("ExtractRmrRegion",  "ediNorm",    r'(?s)^.*?##RMR##(.*)$',                                    "rmrRegion"),
 ]
+SENTINEL = "##RMR##"
 # per-invoice extracts off the current RMR block (scalar valueList)
 TXN_EXTRACTS = [
     ("InvNumber",   "valueList",  r'(?s)^[^*~]*\*([^*~]*).*',                                  "invoiceNum"),
@@ -46,6 +50,13 @@ TXN_EXTRACTS = [
     ("FormatInvDate","invDateRaw", r'(?s)^(\d{4})(\d{2})(\d{2})$',                             "invDateFmt"),
 ]
 DATE_REPL = "$1-$2-$3"  # used by the two Format* steps instead of $1
+
+def repl_for(label):
+    if label.startswith("Format"):
+        return DATE_REPL
+    if label.startswith("Normalize"):
+        return SENTINEL
+    return "$1"
 
 CSV_HEADER_TEMPLATE = (
     'EDI 820 Remittance Advice\n'
@@ -189,15 +200,14 @@ for label_expr, fail in VALIDATIONS:
     steps.append((branch_step(label_expr, fail), "branch", None, None))
 
 for label, src, rx, out in HDR_EXTRACTS:
-    repl = DATE_REPL if label.startswith("Format") else "$1"
-    steps.append((replace_invoke(label, src, rx, out, repl),
+    steps.append((replace_invoke(label, src, rx, out, repl_for(label)),
                   "invoke", ("replace", "pub.string:replace", "String", "string"), None))
 
-# tokenize rmrRegion by "RMR*"
+# tokenize rmrRegion by the sentinel (no regex metachars -> safe either way)
 mt = wrap_fields([svc_field("inString"), svc_field("delim"), svc_field("useDelimsAsSet")], "tokenizeInput")
 ms = wrap_fields([pipe_field("rmrRegion")])
 inp = "\n".join([mapcopy("rmrRegion", "inString"),
-                 mapset("delim", "RMR*", variables=False),
+                 mapset("delim", SENTINEL, variables=False),
                  mapset("useDelimsAsSet", "false", variables=False)])
 steps.append((invoke("SplitInvoices", "pub.string:tokenize", inp, mt, ms),
               "invoke", ("tokenize", "pub.string:tokenize", "String", "string"), None))
@@ -220,8 +230,7 @@ steps.append((transform([mapset("csv", CSV_HEADER_TEMPLATE, variables=True)], mt
 # LOOP over /valueList
 loop_children = []
 for label, src, rx, out in TXN_EXTRACTS:
-    repl = DATE_REPL if label.startswith("Format") else "$1"
-    loop_children.append((replace_invoke(label, src, rx, out, repl),
+    loop_children.append((replace_invoke(label, src, rx, out, repl_for(label)),
                           "invoke", ("replace", "pub.string:replace", "String", "string")))
 mt = wrap_fields([pipe_field("csv")])
 ms = wrap_fields([pipe_field(f) for f in ("csv", "invoiceNum", "invDateFmt", "invPaid", "invGross")])
@@ -427,9 +436,8 @@ def simulate(edi):
             raise ValueError(fail)
     pipe = {}
     for label, src, rx, out in HDR_EXTRACTS:
-        repl = DATE_REPL if label.startswith("Format") else "$1"
-        pipe[out] = sim_replace(edi if src == "edi820" else pipe[src], rx, repl)
-    blocks = [b for b in pipe["rmrRegion"].split("RMR*") if b.strip()]
+        pipe[out] = sim_replace(edi if src == "edi820" else pipe[src], rx, repl_for(label))
+    blocks = [b for b in pipe["rmrRegion"].split(SENTINEL) if b.strip()]
     pipe["invoiceCount"] = str(len(blocks))
     def subst(t, p):
         for k in sorted(p, key=len, reverse=True):
