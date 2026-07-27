@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.09">
+  <CstmrCdtTrfInitn>
+    <GrpHdr>
+      <MsgId>GBC-20260506-PAYROLL-001</MsgId>
+      <CreDtTm>2026-05-05T14:30:00Z</CreDtTm>
+      <NbOfTxs>5</NbOfTxs>
+      <CtrlSum>187500.00</CtrlSum>
+      <InitgPty>
+        <Nm>Lima Industrial Group</Nm>
+        <Id>
+          <OrgId>
+            <AnyBIC>GBCOUS3AXXX</AnyBIC>
+          </OrgId>
+        </Id>
+        <CtctDtls>
+          <Nm>Steven Mason</Nm>
+          <PhneNb>+14044332889</PhneNb>
+          <EmailAdr>smason@georgiabanking.com</EmailAdr>
+        </CtctDtls>
+      </InitgPty>
+    </GrpHdr>
+    <PmtInf>
+      <PmtInfId>BATCH-GBC-20260506-001</PmtInfId>
+      <PmtMtd>TRF</PmtMtd>
+      <NbOfTxs>5</NbOfTxs>
+      <CtrlSum>187500.00</CtrlSum>
+      <PmtTpInf>
+        <LclInstrm>
+          <Cd>CCD</Cd>
+        </LclInstrm>
+        <CtgyPurp>
+          <Cd>SALA</Cd>
+        </CtgyPurp>
+      </PmtTpInf>
+      <ReqdExctnDt>
+        <Dt>2026-05-06</Dt>
+      </ReqdExctnDt>
+      <Dbtr>
+        <Nm>Lima Industrial Group</Nm>
+        <PstlAdr>
+          <StrtNm>Peachtree Street NE</StrtNm>
+          <BldgNb>1200</BldgNb>
+          <TwnNm>Atlanta</TwnNm>
+          <CtrySubDvsn>GA</CtrySubDvsn>
+          <PstCd>30309</PstCd>
+          <Ctry>US</Ctry>
+        </PstlAdr>
+        <Id>
+          <OrgId>
+            <Othr>
+              <Id>58-1234567</Id>
+            </Othr>
+          </OrgId>
+        </Id>
+      </Dbtr>
+      <DbtrAcct>
+        <Id>
+          <Othr>
+            <Id>1234567890</Id>
+          </Othr>
+        </Id>
+        <Ccy>USD</Ccy>
+        <Nm>Lima Operating Account</Nm>
+      </DbtrAcct>
+      <DbtrAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <MmbId>061120084</MmbId>
+          </ClrSysMmbId>
+          <Nm>Georgia Banking Company</Nm>
+        </FinInstnId>
+      </DbtrAgt>
+      <CdtTrfTxInf>
+        <PmtId>
+          <InstrId>GBC-INSTR-0001</InstrId>
+          <EndToEndId>E2E-LIMA-2026-0001</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="USD">75000.00</InstdAmt>
+        </Amt>
+        <CdtrAgt>
+          <FinInstnId>
+            <Nm>JPMORGAN CHASE BANK NA</Nm>
+            <ClrSysMmbId>
+              <MmbId>021000021</MmbId>
+            </ClrSysMmbId>
+          </FinInstnId>
+        </CdtrAgt>
+        <Cdtr>
+          <Nm>Lima Steel Supply LLC</Nm>
+          <PstlAdr>
+            <TwnNm>New York</TwnNm>
+            <CtrySubDvsn>NY</CtrySubDvsn>
+            <Ctry>US</Ctry>
+          </PstlAdr>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <Othr>
+              <Id>9876501001</Id>
+            </Othr>
+          </Id>
+          <Tp>
+            <Cd>CACC</Cd>
+          </Tp>
+        </CdtrAcct>
+        <RmtInf>
+          <Strd>
+            <RfrdDocInf>
+              <Nb>INV-LIMA-2026-05</Nb>
+              <RltdDt>2026-05-01</RltdDt>
+            </RfrdDocInf>
+            <AddtlRmtInf>May 2026 steel supply settlement</AddtlRmtInf>
+          </Strd>
+        </RmtInf>
+      </CdtTrfTxInf>
+      <CdtTrfTxInf>
+        <PmtId>
+          <InstrId>GBC-INSTR-0002</InstrId>
+          <EndToEndId>E2E-LIMA-2026-0002</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="USD">42500.00</InstdAmt>
+        </Amt>
+        <CdtrAgt>
+          <FinInstnId>
+            <Nm>WELLS FARGO BANK NA</Nm>
+            <ClrSysMmbId>
+              <MmbId>121000248</MmbId>
+            </ClrSysMmbId>
+          </FinInstnId>
+        </CdtrAgt>
+        <Cdtr>
+          <Nm>Atlanta Facilities Services Group</Nm>
+          <PstlAdr>
+            <TwnNm>Atlanta</TwnNm>
+            <CtrySubDvsn>GA</CtrySubDvsn>
+            <Ctry>US</Ctry>
+          </PstlAdr>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <Othr>
+              <Id>9876501002</Id>
+            </Othr>
+          </Id>
+          <Tp>
+            <Cd>CACC</Cd>
+          </Tp>
+        </CdtrAcct>
+        <RmtInf>
+          <Ustrd>April 2026 facilities services</Ustrd>
+        </RmtInf>
+      </CdtTrfTxInf>
+      <CdtTrfTxInf>
+        <PmtId>
+          <InstrId>GBC-INSTR-0003</InstrId>
+          <EndToEndId>E2E-LIMA-2026-0003</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="USD">28000.00</InstdAmt>
+        </Amt>
+        <CdtrAgt>
+          <FinInstnId>
+            <Nm>BANK OF AMERICA NA</Nm>
+            <ClrSysMmbId>
+              <MmbId>026009593</MmbId>
+            </ClrSysMmbId>
+          </FinInstnId>
+        </CdtrAgt>
+        <Cdtr>
+          <Nm>Southeast Logistics Partners</Nm>
+          <PstlAdr>
+            <TwnNm>Charlotte</TwnNm>
+            <CtrySubDvsn>NC</CtrySubDvsn>
+            <Ctry>US</Ctry>
+          </PstlAdr>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <Othr>
+              <Id>9876501003</Id>
+            </Othr>
+          </Id>
+          <Tp>
+            <Cd>CACC</Cd>
+          </Tp>
+        </CdtrAcct>
+        <RmtInf>
+          <Ustrd>Q2 2026 freight and logistics</Ustrd>
+        </RmtInf>
+      </CdtTrfTxInf>
+      <CdtTrfTxInf>
+        <PmtId>
+          <InstrId>GBC-INSTR-0004</InstrId>
+          <EndToEndId>E2E-LIMA-2026-0004</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="USD">22000.00</InstdAmt>
+        </Amt>
+        <CdtrAgt>
+          <FinInstnId>
+            <Nm>TRUIST BANK</Nm>
+            <ClrSysMmbId>
+              <MmbId>061000104</MmbId>
+            </ClrSysMmbId>
+          </FinInstnId>
+        </CdtrAgt>
+        <Cdtr>
+          <Nm>Peach State Equipment Rental</Nm>
+          <PstlAdr>
+            <TwnNm>Atlanta</TwnNm>
+            <CtrySubDvsn>GA</CtrySubDvsn>
+            <Ctry>US</Ctry>
+          </PstlAdr>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <Othr>
+              <Id>9876501004</Id>
+            </Othr>
+          </Id>
+          <Tp>
+            <Cd>CACC</Cd>
+          </Tp>
+        </CdtrAcct>
+        <RmtInf>
+          <Ustrd>May 2026 equipment rental</Ustrd>
+        </RmtInf>
+      </CdtTrfTxInf>
+      <CdtTrfTxInf>
+        <PmtId>
+          <InstrId>GBC-INSTR-0005</InstrId>
+          <EndToEndId>E2E-LIMA-2026-0005</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="USD">20000.00</InstdAmt>
+        </Amt>
+        <CdtrAgt>
+          <FinInstnId>
+            <Nm>REGIONS BANK</Nm>
+            <ClrSysMmbId>
+              <MmbId>062000019</MmbId>
+            </ClrSysMmbId>
+          </FinInstnId>
+        </CdtrAgt>
+        <Cdtr>
+          <Nm>Buckhead Office Supply Co</Nm>
+          <PstlAdr>
+            <TwnNm>Atlanta</TwnNm>
+            <CtrySubDvsn>GA</CtrySubDvsn>
+            <Ctry>US</Ctry>
+          </PstlAdr>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <Othr>
+              <Id>9876501005</Id>
+            </Othr>
+          </Id>
+          <Tp>
+            <Cd>CACC</Cd>
+          </Tp>
+        </CdtrAcct>
+        <RmtInf>
+          <Ustrd>May 2026 office supplies</Ustrd>
+        </RmtInf>
+      </CdtTrfTxInf>
+    </PmtInf>
+  </CstmrCdtTrfInitn>
+</Document>
