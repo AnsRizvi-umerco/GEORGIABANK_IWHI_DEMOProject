@@ -73,7 +73,7 @@ CSV_HEADER_TEMPLATE = (
 CSV_ROW_TEMPLATE = '%csv%\n%invoiceNum%,%invDateFmt%,%invPaid%,%invGross%'
 CSV_TRAILER_TEMPLATE = '%csv%\nTOTAL,,%bprAmount%,'
 DEBUG_MSG = 'EDI 820 %traceNum% converted: %invoiceCount% invoices, total %bprAmount% USD - CSV posted to ToSharePoint webhook'
-WEBHOOK_URL = 'https://prod537147.a-vir-r1.int.ipaas.automation.ibm.com/runflow/run/ZECeeMqS4'
+WEBHOOK_URL = 'https://prod537147.a-vir-r1.int.ipaas.automation.ibm.com/runflow/run/LARcL4tyY'
 JSON_PAYLOAD_TEMPLATE = '{"filename":"EDI820_Remittance_%traceNum%.csv","content":"%csvEsc%"}'
 # NOTE: BRANCH/regex-label validation steps REMOVED -- the browser editor rejects them
 # at save time ("Not a valid step") even though they execute. Input validation for the
