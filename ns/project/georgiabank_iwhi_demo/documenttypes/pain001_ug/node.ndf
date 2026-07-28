@@ -13,8 +13,9 @@
         <number name="createdDate" type="Long">1785282132473</number>
         <value name="lastModifiedBy">ans.rizvi@umerco.com</value>
         <value name="lastModifiedByUserId">4712b72f82484d35addb4a5879cd9364</value>
-        <number name="lastModifiedDate" type="Long">1785282132476</number>
+        <number name="lastModifiedDate" type="Long">1785282155068</number>
       </record>
+      <Boolean name="wMIODocTypeReplica">true</Boolean>
     </record>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
@@ -22,12 +23,18 @@
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
-    <value name="schemaDomain">886f38b458be45ec9cb228fb62a35cd0</value>
+    <value name="schemaDomain">cd2a5601acce4b2bbff75a6d2bd37f5a</value>
     <value name="originURI">pain.001.001.09_GBC_UG.xsd</value>
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_nsName">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_Document_UG</value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+          <value name="field_usereditable">true</value>
+        </record>
         <value name="is_public">false</value>
         <value name="field_name">ns:Document</value>
         <value name="field_type">recref</value>
