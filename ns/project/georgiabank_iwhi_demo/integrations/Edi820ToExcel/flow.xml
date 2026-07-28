@@ -10877,7 +10877,7 @@ TOTAL,,%bprAmount%,</value>
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">{"filename":"EDI820_Remittance_%traceNum%.csv","content":"%csvEsc%"}</value>
+  <value name="xml">{"filename":"EDI820_Remittance_%traceNum%.csv","content":"%csvEsc%","traceNum":"%traceNum%","payer":"%payerName%","payee":"%payeeName%","payMethod":"%payMethod%","payDate":"%payDateFmt%","totalAmount":"%bprAmount%","invoiceCount":"%invoiceCount%"}</value>
 </Values>
 </DATA>
 </MAPSET>
@@ -11744,15 +11744,6 @@ TOTAL,,%bprAmount%,</value>
 
 <Values version="2.0">
   <value name="xml">post</value>
-</Values>
-</DATA>
-</MAPSET>
-
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/headers/Content-Type;1;0">
-  <DATA ENCODING="XMLValues" I18N="true">
-
-<Values version="2.0">
-  <value name="xml">application/json</value>
 </Values>
 </DATA>
 </MAPSET>
