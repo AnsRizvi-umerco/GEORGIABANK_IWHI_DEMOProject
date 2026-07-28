@@ -7,3 +7,32 @@ packages:
   gitUrl: https://github.com/AnsRizvi-umerco
   gitUsername: AnsRizvi-umerco
   gitBranch: main
+services:
+- serviceName: project.georgiabank_iwhi_demo.integrations:Edi820ToExcel
+  packages:
+  - name: GEORGIABANK_IWHI_DEMOProject
+    version: "1.0"
+- serviceName: pub.string:replace
+  packages:
+  - name: WmPublic
+    version: 12.1.0.0.875
+- serviceName: pub.string:tokenize
+  packages:
+  - name: WmPublic
+    version: 12.1.0.0.875
+- serviceName: pub.list:sizeOfList
+  packages:
+  - name: WmPublic
+    version: 12.1.0.0.875
+- serviceName: pub.client:http
+  packages:
+  - name: WmPublic
+    version: 12.1.0.0.875
+- serviceName: pub.flow:debugLog
+  packages:
+  - name: WmPublic
+    version: 12.1.0.0.875
+- serviceName: pub.string:base64Decode
+  packages:
+  - name: WmPublic
+    version: 12.1.0.0.875
