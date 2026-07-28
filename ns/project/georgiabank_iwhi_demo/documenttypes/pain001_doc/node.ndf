@@ -6,6 +6,7 @@
     <value name="node_subtype">unknown</value>
     <value name="node_nsName">project.georgiabank_iwhi_demo.documenttypes:pain001_doc</value>
     <value name="node_pkg">GEORGIABANK_IWHI_DEMOProject</value>
+    <value name="node_comment">ISO 20022 pain.001.001.09 CustomerCreditTransferInitiation - GBC usage guideline</value>
     <record name="node_hints" javaclass="com.wm.util.Values">
       <record name="revisionData" javaclass="com.wm.util.Values">
         <value name="createdBy">ans.rizvi@umerco.com</value>
@@ -13,8 +14,9 @@
         <number name="createdDate" type="Long">1785280348026</number>
         <value name="lastModifiedBy">ans.rizvi@umerco.com</value>
         <value name="lastModifiedByUserId">4712b72f82484d35addb4a5879cd9364</value>
-        <number name="lastModifiedDate" type="Long">1785280348029</number>
+        <number name="lastModifiedDate" type="Long">1785280385156</number>
       </record>
+      <Boolean name="wMIODocTypeReplica">true</Boolean>
     </record>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
@@ -22,12 +24,18 @@
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
-    <value name="schemaDomain">36ca62f40fdf42b296ffd301c6dd176a</value>
+    <value name="schemaDomain">fbd72eab36964082805d8aa2ee9e07f2</value>
     <value name="originURI">pain.001.001.09_GBC.xsd</value>
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_nsName">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_Document</value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+          <value name="field_usereditable">true</value>
+        </record>
         <value name="is_public">false</value>
         <value name="field_name">ns:Document</value>
         <value name="field_type">recref</value>
