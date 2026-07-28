@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <record name="record" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="node_nsName">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_CreditTransferTransaction39_UG8</value>
+    <value name="node_pkg">GEORGIABANK_IWHI_DEMOProject</value>
+    <record name="node_hints" javaclass="com.wm.util.Values">
+      <record name="revisionData" javaclass="com.wm.util.Values">
+        <value name="createdBy">ans.rizvi@umerco.com</value>
+        <value name="createdByUserId">4712b72f82484d35addb4a5879cd9364</value>
+        <number name="createdDate" type="Long">1785282227352</number>
+        <value name="lastModifiedBy">ans.rizvi@umerco.com</value>
+        <value name="lastModifiedByUserId">4712b72f82484d35addb4a5879cd9364</value>
+        <number name="lastModifiedDate" type="Long">1785282227352</number>
+      </record>
+    </record>
+    <value name="is_public">false</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+    <value name="schemaDomain">b06f5a33f6d640178e21df84665c0e57</value>
+    <value name="docTypeDomain">ce8436830fa54bbbb69fa9fdf7b3ee85</value>
+    <value name="originURI">pacs.008.001.08_GBC_UG.xsd</value>
+    <array name="rec_fields" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:PmtId</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_PaymentIdentification7_UG8</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:PmtTpInf</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_PaymentTypeInformation28_UG8</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:IntrBkSttlmAmt</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_ActiveCurrencyAndAmount_UG8</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:IntrBkSttlmDt</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+          </array>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:InstdAmt</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_ActiveOrHistoricCurrencyAndAmount_UG8</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:ChrgBr</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+          </array>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:InstgAgt</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_BranchAndFinancialInstitutionIdentification6_UG8</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:InstdAgt</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_BranchAndFinancialInstitutionIdentification6_UG8</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:Dbtr</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_PartyIdentification135_UG8</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:DbtrAcct</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_CashAccount38_UG8</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:DbtrAgt</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_BranchAndFinancialInstitutionIdentification6_UG8</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:CdtrAgt</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_BranchAndFinancialInstitutionIdentification6_UG8</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:Cdtr</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_PartyIdentification135_UG8</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:CdtrAcct</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_CashAccount38_UG8</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">ns:RmtInf</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">project.georgiabank_iwhi_demo.documenttypes:docTypeRef_ns_RemittanceInformation16_UG8</value>
+      </record>
+    </array>
+    <record name="schemaType" javaclass="com.wm.util.Values">
+      <value name="xmlns">urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08</value>
+      <value name="ncName">CreditTransferTransaction39_UG8</value>
+    </record>
+    <value name="schemaRegistered">true</value>
+    <value name="modifiable">false</value>
+    <value name="updateRSD">true</value>
+  </record>
+</Values>
